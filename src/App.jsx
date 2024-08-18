@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import GroupedTeamMembers from "./GroupedTeamMembers";
 import Nav from "./Nav";
 import NotFound from "./NotFound";
+import Teams from "./Teams";
 function App() {
   const [selectedTeam, setTeam] = useState(
     JSON.parse(localStorage.getItem("selectedTeam")) || "TeamB"

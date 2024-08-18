@@ -64,49 +64,17 @@ import { useState } from "react";
 const GroupedTeamMembers = ({ employees, selectedTeam, setTeam }) => {
   const [groupedEmployees, setGroupedData] = useState(groupTeamMembers());
   function groupTeamMembers() {
-    let teams = [];
-
-    let teamAMembers = employees.filter(
-      (employee) => employee.teamName === "TeamA"
-    );
-    let teamA = {
-      team: "TeamA",
-      members: teamAMembers,
-      Collapsed: selectedTeam === "TeamA" ? false : true,
-    };
-    teams.push(teamA);
-
-    let teamBMembers = employees.filter(
-      (employee) => employee.teamName === "TeamB"
-    );
-    let teamB = {
-      team: "TeamB",
-      members: teamBMembers,
-      Collapsed: selectedTeam === "TeamB" ? false : true,
-    };
-    teams.push(teamB);
-
-    let teamCMembers = employees.filter(
-      (employee) => employee.teamName === "TeamC"
-    );
-    let teamC = {
-      team: "TeamC",
-      members: teamCMembers,
-      Collapsed: selectedTeam === "TeamC" ? false : true,
-    };
-    teams.push(teamC);
-
-    let teamDMembers = employees.filter(
-      (employee) => employee.teamName === "TeamD"
-    );
-    let teamD = {
-      team: "TeamD",
-      members: teamDMembers,
-      Collapsed: selectedTeam === "TeamD" ? false : true,
-    };
-    teams.push(teamD);
-
-    return teams;
+   const teams = ["TeamA", "TeamB", "TeamC", "TeamD"];
+   return teams.map((team)=> {
+    const members = employees.filter((employee)=> employee.teamName===team)
+   
+      return{
+            team,
+            members,
+            Collapsed: selectedTeam !== team,
+          };
+         
+  });
   }
 
   function handleTeamClick(event) {
@@ -130,7 +98,7 @@ const GroupedTeamMembers = ({ employees, selectedTeam, setTeam }) => {
           >
             <h4
               id={item.team}
-              className="caed-header text-secondary bg-white"
+              className="card-header text-secondary bg-white"
               onClick={handleTeamClick}
             >
               Team Name : {item.team}
