@@ -3,9 +3,11 @@ const Header = ({ teamMemberCount, selectedTeam }) => {
     <header>
       <div className="row justify-content-center mt-3 mb-4">
         <div className="col-4">
-          <h1>
-            {selectedTeam} has {teamMemberCount} Members
-          </h1>
+          <h1>Team Member Allocation</h1>
+          <h2>
+            {selectedTeam} has {teamMemberCount}{" "}
+            {teamMemberCount === 1 ? "Member" : "Members"}
+          </h2>
         </div>
       </div>
     </header>

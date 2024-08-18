@@ -14,6 +14,7 @@ footer {
   font-family: poppins;
 }
 header > div > div > h1,
+header > div > div > h2,
 footer > h2 {
   color: aliceblue;
   margin-left: 5%;
